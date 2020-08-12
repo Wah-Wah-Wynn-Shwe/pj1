@@ -1,0 +1,26 @@
+body{
+	background-color:#8a8a79;
+	padding:0px;
+	margin:0px;
+}
+
+p{
+	color:#343c1d;
+	font-size:12px;
+	
+}
+
+table {
+	background:rgba(150,35,35,8);
+	border-collapse:collapse;
+}
+
+
+td {
+	background:white;
+	
+}
+th {
+	color:white;
+}
+

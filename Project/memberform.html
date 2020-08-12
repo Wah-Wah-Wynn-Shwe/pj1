@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+table,#right{margin-left:auto;margin-right:auto;border:1px solid blue;height:600;padding:10px;}
+body{color:blue;background-color:#97FC9E;}
+th{color:white;text-align:center;background:red;}
+p{color:white;text-align:center;background:red;}
+</style>
+<script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+<table >
+<tr>
+<th colspan="2">Member Form</th>
+</tr>
+</tr>
+<td>First Name:</td>
+<td><input type="text" id="ff" name=" name="Enter Your name completely!!" pattern="[a-zA-Z]{1,}" required></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><input type="text" id="fs" name=" name="Enter Your name completely!!" pattern="[a-zA-Z]{1,}" required></td>
+</tr>
+<tr>
+<td>Sex:</td>
+<td>
+<select size="1" id="ss">
+<option>Male</option>
+<option>Female</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Age</td>
+<td><input type="text" id="oo" pattern="^(|0-9|{1,2})$" name="Enter two digit!!"  required"></td>
+</tr>
+<tr>
+<td>Address:</td>
+<td><textarea name="cc" id="tt" cols="40" rows="2"></textarea></td>
+</tr>
+<tr>
+<td>Country:</td>
+<td>
+<select size="1" id="vv">
+<option>Myanmar</option>
+<option>Japan</option>
+<option>Singapore</option>
+<option>Thailand</option>
+<option>Indonesia</option>
+<option>Taiwan</option>
+<option>Malaysia</option>
+<option>Brunei</option>
+<option>Hong Kong</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Phone No:</td>
+<td><input type="text" id="hh" name="Enter digit!!" pattern="\d{1,}"></td>
+
+</tr>
+<tr>
+<td>Email:</td>
+<td><input type="text" id="ii" pattern="[a-zA-Z]{1,}\@[a-zA-Z]{5}\.[a-zA-Z]{3}" required></td>
+</tr>
+</table>
+<br><center>
+<input type="submit" value="Submit" id="ss" onclick="show()">
+<input type="reset" value="Cancel" id="cancel" onclick="re()"></center>
+<br><br>
+<div id="right" >
+
+<p>Please enter your distributer number and password below form!!</p><br>
+
+<form method="get" action="login.html" name="f1" onSubmit="save()">
+Enter your distributer number:<input type="text" name="t1"><br><br>
+Enter your personal password:<input type="password" name="t2"><br><br>
+<input type="submit" value="Save your data">
+
+</div><br>
+<center><form action="HomePage.html"><input type="submit" value="Previous Page" >
+</center></form>
+</form>
+
+<script type="text/javascript">
+
+
+function re(){
+var ff=document.getElementById("ff");
+ff.value=null;
+var fs=document.getElementById("fs");
+fs.value=null;
+var oo=document.getElementById("oo");
+oo.value=null;
+var tt=document.getElementById("tt");
+tt.value=null;
+var hh=document.getElementById("hh");
+hh.value=null;
+var ii=document.getElementById("ii");
+ii.value=null;
+}
+
+
+function show(){
+var ff=document.getElementById("ff");
+var fs=document.getElementById("fs");
+var oo=document.getElementById("oo");
+var tt=document.getElementById("tt");
+var hh=document.getElementById("hh");
+var ii=document.getElementById("ii");
+if(ff.value!=null &&  fs.value!=null && oo.value!=null && tt.value!=null && hh.value!=null && ii.value!=null ){
+alert("Thanks You");
+var number=new Array("1116223");
+var no=number[0];
+alert("Your distributer number is"+ no+".");
+var pass=window.prompt("Please write down your personal password(only five digit):");
+var pattern2=/\d{1,5}/;
+if(pattern2.test(pass))
+{alert("Ok!Welcome Our Company.We wish you to become a  good distributer!!!");}
+else
+{alert("Please try again!!!!");}
+}
+else{
+alert("Fill your details correctly!!");
+}
+}
+
+function save(){
+var n1=document.f1.t1.value;
+var n2=document.f1.t2.value;
+
+sessionStorage.setItem("number",n1);
+sessionStorage.setItem("pass",n2);
+
+}
+
+EventUtil.addHandler(window,"load",function(event){
+var t=document.forms[0].elements[0];
+EventUtil.addHandler(t,"focus",function(event){
+event=EventUtil.getEvent(event);
+var target=EventUtil.getTarget(event);
+target.style.backgroundColor="orange";});
+
+t.focus();
+});
+</script>
+</body>
+</html>
